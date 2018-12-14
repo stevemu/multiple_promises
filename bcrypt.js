@@ -18,6 +18,7 @@ const hash = (password) => {
 //     });
 // };
 
+// Why doesn't this work??
 hash("howdy").then(hashedPW => console.log(hashedPW));
 
 // console.log("hashedPW", hash("thisIsMyPassword"));
