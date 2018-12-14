@@ -1,16 +1,23 @@
 const bcrypt = require("bcryptjs");
 
-const password = "howdydoooo";
-
-const hash = () => {
+const hash = (password) => {
+    let hashedPW = password;
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, (err, hash) => {
-            return hash;
-            // hashedPW = hash;
-            // console.log(hashedPW);
+            hashedPW = hash;
+            console.log("hash", hash);
         });
     });
+    return hashedPW;
 };
 
-hash().then(hash => console.log(hash));
+// IGNORE
+// const checkHash = () => {
+//     bcrypt.compare(password, hashedPW).then((res) => {
+//         console.log(res);
+//     });
+// };
 
+hash("howdy").then(hashedPW => console.log(hashedPW));
+
+// console.log("hashedPW", hash("thisIsMyPassword"));
